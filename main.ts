@@ -1,3 +1,13 @@
+function LinearSys (a: number, b: number, c: number, d: number) {
+    basic.showString("LinearSys")
+    if (a == c) {
+        basic.showString("Parallel")
+    } else {
+        x = (d - b) / (a - c)
+        y = a * x + b
+        basic.showString("(" + x + "," + y + ")")
+    }
+}
 input.onButtonPressed(Button.A, function () {
     temp += 1
     basic.showNumber(temp)
@@ -6,11 +16,15 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 function Factor (a: number, b: number, c: number) {
-    x1 = (-1 * b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a)
+    basic.showString("Factor")
     if (b ** 2 - 4 * a * c < 0) {
         basic.showString("roots = imaginary")
     } else if (b ** 2 - 4 * a * c == 0) {
         basic.showString("x1 = x2")
+    } else {
+        x1 = (-1 * b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a)
+        x2 = (-1 * b - Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a)
+        basic.showString("x1 =" + x1 + "x2 =" + x2)
     }
 }
 function NextNumber () {
@@ -38,7 +52,7 @@ input.onButtonPressed(Button.AB, function () {
         } else if (temp == 2) {
             Factor(num1, num2, num3)
         } else if (temp == 3) {
-        	
+            LinearSys(num1, num2, num3, num4)
         }
     }
 })
@@ -63,13 +77,18 @@ function EqOfLine (x1: number, y1: number, x2: number, y2: number) {
 }
 let b = 0
 let m = 0
+let x2 = 0
 let x1 = 0
+let y = 0
+let x = 0
 let state = 0
 let temp = 0
 let num4 = 0
 let num3 = 0
 let num2 = 0
 let num1 = 0
+basic.showString("Math Calculator")
+basic.showString("Insert your 4 numbers")
 num1 = 0
 num2 = 0
 num3 = 0
