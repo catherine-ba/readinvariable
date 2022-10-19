@@ -48,10 +48,13 @@ input.onButtonPressed(Button.AB, function () {
         NextNumber()
     } else {
         if (temp == 1) {
+            basic.clearScreen()
             EqOfLine(num1, num2, num3, num4)
         } else if (temp == 2) {
+            basic.clearScreen()
             Factor(num1, num2, num3)
         } else if (temp == 3) {
+            basic.clearScreen()
             LinearSys(num1, num2, num3, num4)
         }
     }
